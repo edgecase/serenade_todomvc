@@ -20,24 +20,24 @@
 
         p
           label
-            input[type="checkbox" event:click=setTodoDone checked=allCompleted]
+            input[type="checkbox" event:click=setTodoDone checked=@allCompleted]
             "Mark all as complete"
 
         ul#todo-list
-          - collection todos
+          - collection @todos
             - view "todo"
 
         #todo-stats
-          - if completedCount
-            button[class="some-completed" type="button" event:click=clear] "Clear " completedCount " completed item"
-          span incompleteCount " items left"
+          - if @completedCount
+            button[class="some-completed" type="button" event:click=clear] "Clear " @completedCount " completed item"
+          span @incompleteCount " items left"
     </script>
 
     <script type="text/x-serenade" id="todo">
-      li[class=status]
+      li[class=@status]
         label
-          input[type="checkbox" checked=done event:click=toggleDone]
-          span title
+          input[type="checkbox" checked=@done event:click=toggleDone]
+          span @title
     </script>
   </head>
   <body>
@@ -53,7 +53,7 @@
       Jonas Nicklas
     </div>
 
-    <script src="js/serenade.js"></script>
+    <script src="js/serenade.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
