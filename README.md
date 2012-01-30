@@ -8,4 +8,4 @@ You can see a live demo [here][demo].
 
 [todomvc]: http://addyosmani.github.com/todomvc/
 [serenade.js]: https://github.com/elabs/serenade.js
-[demo]:
+[demo]: https://elabs.github.com/serenade_todomvc
