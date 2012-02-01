@@ -46,15 +46,15 @@ class ApplicationController
 class TodoController
   toggleDone: -> @model.toggleDone()
 
-Serenade.registerController('app', ApplicationController)
-Serenade.registerController('todo', TodoController)
+Serenade.controller('app', ApplicationController)
+Serenade.controller('todo', TodoController)
 
 window.onload = ->
 
   # boring boilerplate to grab template from html file
   for script in document.getElementsByTagName('script')
     if script.getAttribute('type') is 'text/x-serenade'
-      Serenade.registerView script.getAttribute('id'), script.innerText.replace(/^\s*/, '')
+      Serenade.view script.getAttribute('id'), script.innerText.replace(/^\s*/, '')
 
   # render and insert
   element = Serenade.render('app', Application.find(1))

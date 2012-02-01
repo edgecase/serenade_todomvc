@@ -7,10 +7,8 @@
 
     __extends(Application, _super);
 
-    Application.name = 'Application';
-
     function Application() {
-      return Application.__super__.constructor.apply(this, arguments);
+      Application.__super__.constructor.apply(this, arguments);
     }
 
     Application.hasMany('todos', {
@@ -81,10 +79,8 @@
 
     __extends(Todo, _super);
 
-    Todo.name = 'Todo';
-
     function Todo() {
-      return Todo.__super__.constructor.apply(this, arguments);
+      Todo.__super__.constructor.apply(this, arguments);
     }
 
     Todo.property('done', {
@@ -115,8 +111,6 @@
   })(Serenade.Model);
 
   ApplicationController = (function() {
-
-    ApplicationController.name = 'ApplicationController';
 
     function ApplicationController() {}
 
@@ -150,8 +144,6 @@
 
   TodoController = (function() {
 
-    TodoController.name = 'TodoController';
-
     function TodoController() {}
 
     TodoController.prototype.toggleDone = function() {
@@ -162,9 +154,9 @@
 
   })();
 
-  Serenade.registerController('app', ApplicationController);
+  Serenade.controller('app', ApplicationController);
 
-  Serenade.registerController('todo', TodoController);
+  Serenade.controller('todo', TodoController);
 
   window.onload = function() {
     var element, script, _i, _len, _ref;
@@ -172,7 +164,7 @@
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       script = _ref[_i];
       if (script.getAttribute('type') === 'text/x-serenade') {
-        Serenade.registerView(script.getAttribute('id'), script.innerText.replace(/^\s*/, ''));
+        Serenade.view(script.getAttribute('id'), script.innerText.replace(/^\s*/, ''));
       }
     }
     element = Serenade.render('app', Application.find(1));
